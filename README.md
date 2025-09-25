@@ -121,6 +121,31 @@ Phụ thuộc độ dài khóa m và 26 ký tự → 26^m khả năng.
 Phân tích tần số theo từng chuỗi chữ cái (Kasiski test, Friedman test).
 
 5. Cài đặt thuật toán mã hoá và giải mã bằng code C++
-## 
 
+## Phương pháp Playfair Cipher
+
+1. Tên gọi: Playfair Cipher – mã hóa theo cặp chữ cái dựa trên bảng 5x5.
+
+2. Thuật toán:
+
+- Mã hóa:
+
+Chia văn bản thành các cặp chữ cái.
+
+Tạo bảng 5x5 từ khóa (ghép I/J).
+
+Mã hóa theo quy tắc: cùng hàng, cùng cột, hoặc hình chữ nhật.
+
+- Giải mã:
+
+Làm ngược lại quy tắc trên.
+
+3. Không gian khóa:
+
+Tùy vào khóa chữ cái → 25! khả năng (bảng 5x5).
+
+4. Cách phá mã:
+
+Tần số chữ cái, thử kết hợp các cặp.
+5. Cài đặt thuật toán mã hoá và giải mã bằng code C++
 
