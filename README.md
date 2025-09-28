@@ -42,7 +42,23 @@ D_k(C) = (C - k) mod 26
 
 - Phân tích tần suất (frequency analysis): Trong tiếng Anh, chữ 'E' (vị trí 4) xuất hiện nhiều nhất.
 
-5. Cài đặt thuật toán mã hoá và giải mã bằng code C++
+### Kiểm thử
+**Dùng C++**
+- Mã hoá
+
+<img width="640" height="467" alt="image" src="https://github.com/user-attachments/assets/287da6fe-b928-4895-bda7-ea3b4d577c1a" />
+
+- Giải mã
+
+<img width="609" height="448" alt="image" src="https://github.com/user-attachments/assets/c8faa0a7-cd76-42c5-9c18-c6e10834d1c5" />
+
+**Dùng html+css+javascript**
+- Mã hoá
+<img width="1878" height="1036" alt="image" src="https://github.com/user-attachments/assets/fbb67ccc-da61-4317-8c29-ea4e265fd43e" />
+
+- Giải mã
+
+<img width="1880" height="976" alt="image" src="https://github.com/user-attachments/assets/9725ce59-e67a-4a80-971e-242d269c61b7" />
 
 ## II.Mã Hóa Affine
 **1. Tên gọi:** Affine cipher.
@@ -68,7 +84,24 @@ a và 26 phải là nguyên tố cùng nhau (gcd(a,26)=1) để tồn tại ngh�
 
 - Phân tích tần suất có thể tách thành suy luận a và b từ hai cặp chữ cái tần suất đứng đầu (nhưng thực tế phức tạp hơn Caesar).
 
-5. Cài đặt thuật toán mã hoá và giải mã bằng code C++
+### Kiểm thử
+**Dùng C++**
+- Mã hoá
+
+<img width="710" height="492" alt="image" src="https://github.com/user-attachments/assets/38641766-fdda-4ada-b5de-dec8553123d5" />
+
+- Giải mã
+
+<img width="1113" height="645" alt="image" src="https://github.com/user-attachments/assets/da1967fd-15b7-4ac0-84e4-69bc0e3bdbb3" />
+
+**Dùng html+css+javascript**
+- Mã hoá
+
+<img width="1690" height="981" alt="image" src="https://github.com/user-attachments/assets/fdb3fbb6-895f-42a5-a07d-25b4fa96c798" />
+
+- Giải mã
+
+<img width="1905" height="971" alt="image" src="https://github.com/user-attachments/assets/08cb50fd-6f63-469b-8271-9fde39df5824" />
 
 ## III. Mã hoá hoán vị 
 
@@ -92,7 +125,24 @@ Nếu hoán vị chiều n, không gian = n! (ví dụ n=6 → 720). Khoá thự
 
 - Kết hợp với phân tích digram/trigram để chấm điểm kết quả.
 
-5. Cài đặt thuật toán mã hoá và giải mã bằng code C++
+### Kiểm thử
+**Dùng C++**
+- Mã hoá
+
+<img width="1097" height="644" alt="image" src="https://github.com/user-attachments/assets/651c0d63-7207-49d7-b5aa-b46be1934f73" />
+
+- Giải mã
+
+<img width="1105" height="639" alt="image" src="https://github.com/user-attachments/assets/40c6c952-8525-4c18-a0f8-19bcded0ffc3" />
+
+**Dùng html+css+javascript**
+- Mã hoá
+
+<img width="1820" height="965" alt="image" src="https://github.com/user-attachments/assets/0cd61023-5b91-4992-b7e0-69162b1d650c" />
+
+- Giải mã
+
+<img width="1824" height="962" alt="image" src="https://github.com/user-attachments/assets/28421a43-c902-40bd-b8c1-1609a292b965" />
 
 ## IV.Phương pháp Vigenère Cipher
 **1. Tên gọi:** Vigenère cipher
@@ -123,7 +173,24 @@ Nếu hoán vị chiều n, không gian = n! (ví dụ n=6 → 720). Khoá thự
 
 - Nếu m chưa biết nhỏ, thử mọi m và chấm điểm bằng mẫu ngôn ngữ (chi-square).
 
-5. Cài đặt thuật toán mã hoá và giải mã bằng code C++
+### Kiểm thử
+**Dùng C++**
+- Mã hoá
+
+<img width="1104" height="639" alt="image" src="https://github.com/user-attachments/assets/3093fddc-d84c-478a-b654-a1c170a6658d" />
+
+- Giải mã
+
+<img width="1087" height="645" alt="image" src="https://github.com/user-attachments/assets/7d7aa615-f77f-4262-9a30-8c21d86e8535" />
+
+**Dùng html+css+javascript**
+- Mã hoá
+
+<img width="1840" height="972" alt="image" src="https://github.com/user-attachments/assets/5a400ee7-43fa-4f9a-8563-9e0c7832d2e7" />
+
+- Giải mã
+
+<img width="1842" height="955" alt="image" src="https://github.com/user-attachments/assets/c7565e25-c285-4946-b696-cc45a5e5abf9" />
 
 ## V.Phương pháp Playfair
 
@@ -162,5 +229,23 @@ Nếu khác hàng và cột: thay bằng hai chữ ở cùng hàng nhưng cột 
 - Thực nghiệm dùng heuristics: simulated annealing hoặc hill-climbing với scoring bằng ngôn ngữ (n-gram) — các thuật toán này được dùng để phá Playfair.
 
 - Nếu có plaintext mẫu, có thể khai thác.
-5. Cài đặt thuật toán mã hoá và giải mã bằng code C++
+### Kiểm thử
+**Dùng C++**
+- Mã hoá
+
+<img width="1097" height="642" alt="image" src="https://github.com/user-attachments/assets/bfef1f02-0f48-4531-b535-28f28a728df6" />
+
+- Giải mã
+
+<img width="1108" height="644" alt="image" src="https://github.com/user-attachments/assets/70e8bc69-ea9d-412d-8ef4-30900026d6a3" />
+
+
+**Dùng html+css+javascript**
+- Mã hoá
+
+<img width="1844" height="951" alt="image" src="https://github.com/user-attachments/assets/aae701d9-810d-49e3-913b-536debd301da" />
+
+- Giải mã
+
+<img width="1891" height="962" alt="image" src="https://github.com/user-attachments/assets/a3264c0f-377d-4d07-b3a8-eb05509e2b8b" />
 
