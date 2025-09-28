@@ -1,0 +1,303 @@
+<!-- transposition.html -->
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<title>Columnar Transposition</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  body { 
+    font-family: 'Roboto', sans-serif; 
+    max-width: 720px; 
+    margin: 20px auto; 
+    padding: 20px; 
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+    color: #333; 
+    min-height: 100vh;
+  }
+  .container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  h2 { 
+    text-align: center; 
+    color: #2c3e50; 
+    margin-bottom: 32px; 
+    font-size: 32px; 
+    font-weight: 700; 
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+  }
+  h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    margin: 10px auto;
+    border-radius: 2px;
+  }
+  label { 
+    display: block; 
+    margin-top: 20px; 
+    font-weight: 500; 
+    color: #34495e; 
+    font-size: 15px; 
+    letter-spacing: 0.5px;
+  }
+  textarea, input { 
+    width: 100%; 
+    padding: 14px 16px; 
+    box-sizing: border-box; 
+    border: 2px solid #e1e8ed; 
+    border-radius: 10px; 
+    font-size: 15px; 
+    font-family: 'Roboto', sans-serif;
+    background: #fafbfc;
+    transition: all 0.3s ease; 
+  }
+  textarea:focus, input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+    background: white;
+    transform: translateY(-1px);
+  }
+  .button-group {
+    display: flex;
+    gap: 16px;
+    margin-top: 20px;
+  }
+  button { 
+    flex: 1;
+    padding: 14px 20px; 
+    border: none; 
+    border-radius: 10px; 
+    font-size: 15px; 
+    font-weight: 500; 
+    cursor: pointer; 
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+    color: white; 
+    position: relative;
+    overflow: hidden;
+  }
+  button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+  }
+  button:hover::before {
+    left: 100%;
+  }
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+  }
+  button#dec {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+  }
+  button#dec:hover {
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.3);
+  }
+  button:active {
+    transform: translateY(0);
+  }
+  .output-section { 
+    margin-top: 32px; 
+    border: 2px solid #e1e8ed; 
+    border-radius: 12px; 
+    padding: 20px; 
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); 
+    transition: all 0.3s ease;
+  }
+  .output-section:hover {
+    border-color: #667eea;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+  }
+  .output-title {
+    font-weight: 600;
+    color: #2c3e50;
+    padding: 0 12px;
+    font-size: 16px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .output-title::before {
+    content: '📋';
+  }
+  pre { 
+    background: #ffffff; 
+    padding: 20px; 
+    white-space: pre-wrap; 
+    border-radius: 8px; 
+    font-family: 'Roboto Mono', monospace; 
+    font-size: 15px; 
+    color: #2c3e50; 
+    margin: 0; 
+    border: 1px solid #dee2e6; 
+    line-height: 1.5;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+    animation: fadeIn 0.5s ease-in-out;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .button-group button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .button-group button::after {
+    content: '🔒';
+    font-size: 16px;
+  }
+  #dec::after {
+    content: '🔓';
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>Columnar Transposition</h2>
+  <label for="text">Văn bản </label>
+  <textarea id="text" rows="4" placeholder="Nhập văn bản cần mã hóa hoặc giải mã... "></textarea>
+  <label for="key">Khóa (chuỗi ký tự)</label>
+  <input id="key" type="text" value="ZEBRAS" placeholder="Ví dụ: ZEBRAS (khóa sẽ được sắp xếp theo thứ tự alphabet)"/>
+  <div class="button-group">
+    <button id="enc">Mã hóa</button>
+    <button id="dec">Giải mã</button>
+  </div>
+  <div class="output-section">
+    <div class="output-title">Kết quả</div>
+    <pre id="out">Nhấn nút để xem kết quả...</pre>
+  </div>
+</div>
+<script>
+// --- Unicode-safe: tách theo grapheme để không rơi dấu ---
+function segmentsOf(str) {
+  if (Intl && Intl.Segmenter) {
+    const seg = new Intl.Segmenter('vi', { granularity: 'grapheme' });
+    return Array.from(seg.segment(str), s => s.segment);
+  }
+  // Fallback: tách theo code point (đỡ hơn code unit)
+  return Array.from(str);
+}
+
+function keyOrder(key){
+  const arr = key.split('').map((ch,i)=>({ch,i}));
+  // stable sort theo chữ cái, cùng chữ thì giữ thứ tự ban đầu
+  arr.sort((a,b)=> a.ch.localeCompare(b.ch) || a.i - b.i);
+  const order = Array(key.length);
+  for (let rank=0; rank<key.length; ++rank) order[arr[rank].i] = rank;
+  return order; // order[colIndex] = rank
+}
+
+function encrypt(s, key){
+  const A = segmentsOf(s);            // mảng grapheme
+  const k = key.length;
+  if (k <= 0) return s;
+  const rows = Math.ceil(A.length / k);
+
+  // điền theo hàng
+  const grid = Array.from({length:rows}, ()=> Array(k).fill(null));
+  let idx = 0;
+  for (let r=0; r<rows; r++)
+    for (let c=0; c<k; c++)
+      grid[r][c] = (idx < A.length) ? A[idx++] : null;
+
+  // đọc theo thứ tự rank của khóa
+  const order = keyOrder(key);
+  const colOfRank = Array(k);
+  for (let c=0; c<k; c++) colOfRank[order[c]] = c;
+
+  let out = [];
+  for (let rank=0; rank<k; rank++) {
+    const c = colOfRank[rank];
+    for (let r=0; r<rows; r++) {
+      const cell = grid[r][c];
+      if (cell !== null) out.push(cell);
+    }
+  }
+  return out.join('');
+}
+
+function decrypt(ct, key){
+  const A = segmentsOf(ct);
+  const k = key.length;
+  if (k <= 0) return ct;
+  const rows = Math.ceil(A.length / k);
+  const totalCells = rows * k;
+  const rem = A.length % k;                // số cột có thêm 1 ô (ở cuối hàng đầu tiên đi tiếp sang hàng 2)
+
+  // >>> SỬA LỖI: độ dài cột dựa theo CHỈ SỐ CỘT gốc, không theo rank
+  const colLen = Array(k).fill(rows);
+  if (A.length < totalCells) {
+    for (let c = rem; c < k; c++) colLen[c] = rows - 1; // cột 0..rem-1 dài hơn
+  }
+
+  // phân phối ciphertext vào từng cột theo THỨ TỰ RANK (nhưng lấy độ dài bằng colLen[cột gốc])
+  const order = keyOrder(key);
+  const colOfRank = Array(k);
+  for (let c=0; c<k; c++) colOfRank[order[c]] = c;
+
+  const cols = Array(k).fill(null).map(()=>[]);
+  let idx = 0;
+  for (let rank=0; rank<k; rank++) {
+    const c = colOfRank[rank];
+    const len = colLen[c];
+    cols[c] = A.slice(idx, idx + len);
+    idx += len;
+  }
+
+  // đọc lại theo hàng
+  let out = [];
+  for (let r=0; r<rows; r++) {
+    for (let c=0; c<k; c++) {
+      if (r < cols[c].length) out.push(cols[c][r]);
+    }
+  }
+  return out.join('');
+}
+
+// --- UI binding ---
+document.getElementById('enc').onclick = ()=>{
+  const t = document.getElementById('text').value;
+  const k = document.getElementById('key').value || '';
+  const result = encrypt(t,k);
+  const out = document.getElementById('out');
+  out.textContent = result;
+  out.style.animation = 'none';
+  setTimeout(() => { out.style.animation = 'fadeIn 0.5s ease-in-out'; }, 10);
+};
+document.getElementById('dec').onclick = ()=>{
+  const t = document.getElementById('text').value;
+  const k = document.getElementById('key').value || '';
+  const result = decrypt(t,k);
+  const out = document.getElementById('out');
+  out.textContent = result;
+  out.style.animation = 'none';
+  setTimeout(() => { out.style.animation = 'fadeIn 0.5s ease-in-out'; }, 10);
+};
+</script>
+</body>
+</html>
